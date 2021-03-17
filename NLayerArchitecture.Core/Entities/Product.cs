@@ -13,7 +13,7 @@ namespace NLayerArchitecture.Core.Entities
         public int CategoryId { get; set; }
         public bool IsDeleted { get; set; }
         public string InnerBarcode { get; set; }
-        public virtual Category Category { get; set; } //virtual??
+        public virtual Category Category { get; set; }      //virtual??
 
     }
 }
