@@ -16,6 +16,6 @@ namespace NLayerArchitecture.Core.Repositories
         Task AddRangeAsync(IEnumerable<TEntity> entities);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
-        Task<TEntity> Update(TEntity entity);
+        TEntity Update(TEntity entity);
     }
 }
