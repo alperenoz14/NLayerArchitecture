@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayerArchitecture.Core.Entities;
 using NLayerArchitecture.Data.Configurations;
+using NLayerArchitecture.Data.Seeds;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,9 @@ namespace NLayerArchitecture.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-NNE3V2L\MSSQLDATABASE;Database=NLayerDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-NNE3V2L\MSSQLDATABASE;Database=NLayerDB;Trusted_Connection=True",
+                options => options.MigrationsAssembly("NLayerArchitecture.Data")
+                );
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -22,10 +25,8 @@ namespace NLayerArchitecture.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
 
-            //to be continued with seeds...
-
-
-
+            modelBuilder.ApplyConfiguration(new ProductSeed(new int[] { 1, 2 }));
+            modelBuilder.ApplyConfiguration(new CategorySeed(new int[] { 1, 2 }));
 
             //That's how you do models configuration without using seperate folder,
 
