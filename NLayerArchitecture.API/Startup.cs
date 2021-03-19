@@ -5,10 +5,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLayerArchitecture.Core.Repositories;
+using NLayerArchitecture.Core.Services;
+using NLayerArchitecture.Core.UnitOfWork;
+using NLayerArchitecture.Data;
+using NLayerArchitecture.Data.Repositories;
+using NLayerArchitecture.Data.UnitOfWorks;
+using NLayerArchitecture.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace NLayerArchitecture.API
 {
@@ -24,6 +32,16 @@ namespace NLayerArchitecture.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<AppDbContext>();
+            
             services.AddControllers();
         }
 

@@ -11,12 +11,12 @@ namespace NLayerArchitecture.Service.Services
 {
     public class Service<TEntity> : IService<TEntity> where TEntity : class
     {
-        private readonly IRepository<TEntity> _repository;
         public readonly IUnitOfWork _unitOfWork;
-        public Service(IRepository<TEntity> repository, IUnitOfWork unitOfWork)
+        private readonly IRepository<TEntity> _repository;
+        public Service(IUnitOfWork unitOfWork, IRepository<TEntity> repository)
         {
-            _repository = repository;
             _unitOfWork = unitOfWork;
+            _repository = repository;
         }
 
         public async Task<TEntity> AddAsync(TEntity entity)

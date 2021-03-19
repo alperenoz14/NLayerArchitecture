@@ -10,14 +10,14 @@ namespace NLayerArchitecture.Data.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-        private AppDbContext appDbContext { get => _context as AppDbContext; }
+        private AppDbContext _appDbContext { get => _context as AppDbContext; }
         public ProductRepository(AppDbContext context) : base(context)
         {
         }
 
         public async Task<Product> GetWithCategoryByIdAsync(int productId)
         {
-            return await appDbContext.Products.Include(x => x.Category).SingleOrDefaultAsync(x => x.ID == productId);
+            return await _appDbContext.Products.Include(x => x.Category).SingleOrDefaultAsync(x => x.ID == productId);
             //idsi gönderdiğim idye eişt olan productsları include ettiği kategori ile birlikte getir...
         }
     }

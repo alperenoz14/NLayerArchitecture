@@ -11,7 +11,7 @@ namespace NLayerArchitecture.Service.Services
 {
     public class CategoryService : Service<Category>, ICategoryService
     {
-        public CategoryService(IRepository<Category> repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
+        public CategoryService(IUnitOfWork unitOfWork, IRepository<Category> repository) : base(unitOfWork,repository)
         {       //parent sınıfında ctor var ve bunları alıyo, bunu inherite ettiğin için bu ctoru oluşturman ve seninde bunları alman lazım...
         }
 

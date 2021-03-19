@@ -12,7 +12,7 @@ namespace NLayerArchitecture.Service.Services
     public class ProductService : Service<Product>, IProductService
     {
 
-        public ProductService(IRepository<Product> repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
+        public ProductService( IUnitOfWork unitOfWork, IRepository<Product> repository) : base(unitOfWork, repository)
         {
         }
 

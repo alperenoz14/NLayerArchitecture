@@ -11,12 +11,12 @@ namespace NLayerArchitecture.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly AppDbContext _context;        //AppDbContext??
+        protected readonly DbContext _context;        //AppDbContext??
         private readonly DbSet<TEntity> _dbSet;
         public Repository(AppDbContext context)
         {
             _context = context;                 //reach the context...
-            _dbSet = _context.Set<TEntity>();   //reach the related dbset (table)...
+            _dbSet = context.Set<TEntity>();   //reach the related dbset (table)... niye contexten set??
         }
 
         public async Task AddAsync(TEntity entity)
