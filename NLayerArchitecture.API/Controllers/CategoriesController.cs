@@ -41,6 +41,13 @@ namespace NLayerArchitecture.API.Controllers
             return Ok(_mapper.Map<CategoryDto>(category));
         }
 
+        [HttpGet("{id}/products")]
+        public async Task<IActionResult> GetWithProductsById(int id)
+        {
+            var category = await _categoryService.GetWithProductsById(id);
+            return Ok(_mapper.Map<CategoryWithProductDto>(category));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Add(CategoryDto categoryDto)
         {
