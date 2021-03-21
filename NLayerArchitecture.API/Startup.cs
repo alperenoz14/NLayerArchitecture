@@ -18,6 +18,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLayerArchitecture.API.Filters;
+using Microsoft.AspNetCore.Diagnostics;
+using NLayerArchitecture.API.DTO_s;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace NLayerArchitecture.API
 {
@@ -60,6 +64,27 @@ namespace NLayerArchitecture.API
                 app.UseDeveloperExceptionPage();
             }
 
+            /*app.UseExceptionHandler(config =>
+            {
+                config.Run(async context =>
+                {
+                    context.Response.StatusCode = 500;
+                    context.Response.ContentType = "application/json";
+                    var error = context.Features.Get<IExceptionHandlerFeature>();
+
+                    if (error != null)
+                    {
+                        var exception = error.Error;
+
+                        ErrorDto errorDto = new ErrorDto();
+
+                        errorDto.StatusCode = 500;
+                        errorDto.Errors.Add(exception.Message);
+
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(errorDto));
+                    }
+                });
+            });*/
             app.UseRouting();
 
             app.UseAuthorization();

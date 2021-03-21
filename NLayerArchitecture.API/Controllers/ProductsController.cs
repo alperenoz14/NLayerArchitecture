@@ -54,6 +54,7 @@ namespace NLayerArchitecture.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ProductDto productDto)
         {
+            
             var addedProduct = await _productService.AddAsync(_mapper.Map<Product>(productDto));
             return Ok(_mapper.Map<ProductDto>(addedProduct));
         }
