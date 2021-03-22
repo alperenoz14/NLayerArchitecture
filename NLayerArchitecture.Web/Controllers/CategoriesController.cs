@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NLayerArchitecture.API.DTO_s;
+using NLayerArchitecture.API.Filters;
 using NLayerArchitecture.Core.Entities;
 using NLayerArchitecture.Web.APIService;
 using System;
@@ -56,6 +57,7 @@ namespace NLayerArchitecture.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [ServiceFilter(typeof(NotFoundFilter))]
         public async Task<IActionResult> Delete(int id)
         {
             await _categoryAPIService.Remove(id);

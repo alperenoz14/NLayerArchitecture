@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayerArchitecture.API.DTO_s;
+using NLayerArchitecture.API.Filters;
 using NLayerArchitecture.Core.Entities;
 using NLayerArchitecture.Core.Services;
 using NLayerArchitecture.Service.Services;
@@ -63,6 +64,7 @@ namespace NLayerArchitecture.API.Controllers
             return NoContent();
         }
 
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {

@@ -64,7 +64,7 @@ namespace NLayerArchitecture.API
                 app.UseDeveloperExceptionPage();
             }
 
-            /*app.UseExceptionHandler(config =>
+            app.UseExceptionHandler(config =>
             {
                 config.Run(async context =>
                 {
@@ -84,7 +84,7 @@ namespace NLayerArchitecture.API
                         await context.Response.WriteAsync(JsonConvert.SerializeObject(errorDto));
                     }
                 });
-            });*/
+            });
             app.UseRouting();
 
             app.UseAuthorization();

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLayerArchitecture.API.Filters;
 using NLayerArchitecture.Web.APIService;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace NLayerArchitecture.Web
             {
                 opt.BaseAddress = new Uri(Configuration["baseUrl"]);
             });
+
+            services.AddScoped<NotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc();
             services.AddControllersWithViews();
