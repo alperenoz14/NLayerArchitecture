@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NLayerArchitecture.API.DTO_s.CategoryDto>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Categories</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>
+
+                <a asp-action="Update" asp-route-id="@item.ID">Güncelle</a>
+                <a asp-action="Delete" asp-route-id="@item.ID">Sil</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

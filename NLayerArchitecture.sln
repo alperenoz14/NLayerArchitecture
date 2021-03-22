@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerArchitecture.Data", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerArchitecture.Service", "NLayerArchitecture.Service\NLayerArchitecture.Service.csproj", "{181221F9-B2D6-4DE1-BFD5-302B0957DCC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerArchitecture.Web", "NLayerArchitecture.Web\NLayerArchitecture.Web.csproj", "{EC33133A-EB39-4BB5-AF07-9D29FA3FC674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerArchitecture.Web", "NLayerArchitecture.Web\NLayerArchitecture.Web.csproj", "{EC33133A-EB39-4BB5-AF07-9D29FA3FC674}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
