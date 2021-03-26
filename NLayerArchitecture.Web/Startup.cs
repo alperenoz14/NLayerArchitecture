@@ -29,7 +29,6 @@ namespace NLayerArchitecture.Web
                 opt.BaseAddress = new Uri(Configuration["baseUrl"]);
             });
 
-            services.AddScoped<NotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc();
             services.AddControllersWithViews();

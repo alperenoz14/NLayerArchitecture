@@ -64,7 +64,6 @@ namespace NLayerArchitecture.API.Controllers
             return NoContent();
         }
 
-        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {

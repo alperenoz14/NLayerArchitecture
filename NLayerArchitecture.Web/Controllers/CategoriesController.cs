@@ -57,12 +57,12 @@ namespace NLayerArchitecture.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        [ServiceFilter(typeof(NotFoundFilter))]
+        //[ServiceFilter(typeof(NotFoundFilter))]
         public async Task<IActionResult> Delete(int id)
         {
             await _categoryAPIService.Remove(id);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
     }
 }
