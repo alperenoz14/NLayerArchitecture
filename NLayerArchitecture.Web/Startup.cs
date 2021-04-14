@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLayerArchitecture.API.Filters;
+using NLayerArchitecture.Core.Services;
+using NLayerArchitecture.Service.Services;
 using NLayerArchitecture.Web.APIService;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,7 @@ namespace NLayerArchitecture.Web
                 opt.BaseAddress = new Uri(Configuration["baseUrl"]);
             });
 
+            //services.AddScoped<ICategoryService, CategoryService>();
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc();
             services.AddControllersWithViews();

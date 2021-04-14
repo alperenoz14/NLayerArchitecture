@@ -54,7 +54,7 @@ namespace NLayerArchitecture.Web.Controllers
         {
             await _categoryAPIService.Update(categoryDto);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         //[ServiceFilter(typeof(NotFoundFilter))]
